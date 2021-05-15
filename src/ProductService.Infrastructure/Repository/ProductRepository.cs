@@ -71,7 +71,7 @@ namespace ProductService.Infrastructure.Repository
                 .OrderBy(p => p.Id)
                 .Skip(pageNumber * pageSize)
                 .Take(pageSize)
-                .Select(p => p.MapToProduct())
+                .Select(p => p.MapToProductDto())
                 .ToListAsync(cancellationToken);
         }
 

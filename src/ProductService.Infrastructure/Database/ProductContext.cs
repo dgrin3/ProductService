@@ -18,6 +18,7 @@ namespace ProductService.Infrastructure.Database
             : base(options)
         {
         }
+        public virtual DbSet<CategoryEntity> Categories { get; set; }
         public virtual DbSet<ProductEntity> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

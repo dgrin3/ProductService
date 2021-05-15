@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ProductService.Infrastructure.Database.Entity
 {
     /// <summary>
-    /// Ppodukt-Entität der Datenbank
+    /// Produkt-Entität der Datenbank
     /// </summary>
     public class ProductEntity
     {

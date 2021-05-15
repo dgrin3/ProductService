@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProductService.Application.Dto.Product
+namespace ProductService.Application.Dto
 {
     /// <summary>
-    /// Abfrage für Produktliste
+    /// Abfrage für Liste
     /// </summary>
-    public class ListProductByPageQuery
+    public class ListByPageQuery
     {
         /// <summary>
         /// Seitenummer

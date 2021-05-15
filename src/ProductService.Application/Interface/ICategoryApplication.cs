@@ -1,4 +1,4 @@
-﻿using ProductService.Application.Dto.Product;
+﻿using ProductService.Application.Dto.Category;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,30 +11,30 @@ namespace ProductService.Application.Interface
     /// <summary>
     /// Produkt-Methoden der Applikation-Schicht
     /// </summary>
-    public interface IProductApplication
+    public interface ICategoryApplication
     {
         /// <summary>
         /// Auflisten der Produkte nach Seite
         /// </summary>
         /// <returns>Liste der Produkte</returns>
-        Task<IEnumerable<ProductDto>> ListByPageAsync(ListProductsByPageQuery query, CancellationToken cancellationToken);
+        Task<IEnumerable<CategoryDto>> ListByPageAsync(ListCategoriesByPageQuery query, CancellationToken cancellationToken);
 
         /// <summary>
         /// Erstellen des Produkts
         /// </summary>
         /// <returns>Liste der Produkte.</returns>
-        Task<int> AddAsync(AddProductCommand product, CancellationToken cancellationToken);
+        Task<int> AddAsync(AddCategoryCommand category, CancellationToken cancellationToken);
 
         /// <summary>
         /// Änderung des Produkts
         /// </summary>
         /// <returns>.</returns>
-        Task ChangeAsync(ChangeProductCommand product, CancellationToken cancellationToken);
+        Task ChangeAsync(ChangeCategoryCommand category, CancellationToken cancellationToken);
 
         /// <summary>
         /// Löschen des Produkts
         /// </summary>
         /// <returns>.</returns>
-        Task DeleteAsync(DeleteProductCommand productId, CancellationToken cancellationToken);
+        Task DeleteAsync(DeleteCategoryCommand categoryId, CancellationToken cancellationToken);
     }
 }

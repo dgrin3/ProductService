@@ -42,6 +42,7 @@ namespace ProductService.Api
             services.AddTransient<IValidator<ChangeProductCommand>, ChangeProductValidator>();
 
             services.AddTransient<IProductApplication, ProductApplication>();
+            services.AddTransient<ICategoryApplication, CategoryApplication>();
             services.AddInfrastructure(Configuration);
         }
 

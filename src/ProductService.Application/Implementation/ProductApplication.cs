@@ -39,12 +39,11 @@ namespace ProductService.Application.Implementation
 
 
         ///<inheritdoc/>
-        public async Task<IEnumerable<ProductDto>> ListByPageAsync(ListProductByPageQuery query, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ProductDto>> ListByPageAsync(ListProductsByPageQuery query, CancellationToken cancellationToken)
         {
             var products = await _productRepository.ListByPageAsync(query.PageNumber, query.PageSize, cancellationToken);
 
             return products.ToList();
         }
-
     }
 }

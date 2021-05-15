@@ -1,4 +1,4 @@
-﻿using ProductService.Application.Dto.Product;
+﻿using ProductService.Application.Dto.Category;
 using ProductService.Infrastructure.Database.Entity;
 using System;
 using System.Collections.Generic;
@@ -11,21 +11,18 @@ namespace ProductService.Infrastructure.Database.Mapping
     /// <summary>
     /// Erweiterungsmethoden für ProductEntity
     /// </summary>
-    public static class ProductMappingExtensions
+    public static class CategoryMappingExtensions
     {
         /// <summary>
-        /// Mapping auf ProductDto
+        /// Mapping auf CategoryDto
         /// </summary>
         /// <param name="p"></param>
         /// <returns>ProductDto</returns>
-        public static ProductDto MapToProductDto(this ProductEntity p)
+        public static CategoryDto MapToCategoryDto(this CategoryEntity p)
             => new()
             {
                 Id = p.Id,
-                Name = p.Name,
-                Price = p.Price,
-                Description = p.Description,
-                CategoryId = p.CategoryId
+                Name = p.Name
             };
     }
 }

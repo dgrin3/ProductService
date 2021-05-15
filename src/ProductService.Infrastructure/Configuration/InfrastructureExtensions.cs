@@ -23,6 +23,7 @@ namespace ProductService.Infrastructure.Configuration
         /// <returns></returns>
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddDbContext<ProductContext>(o => o.UseSqlServer(configuration.GetConnectionString("ProductService")));
             
