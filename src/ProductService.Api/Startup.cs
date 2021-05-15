@@ -1,3 +1,4 @@
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProductService.Api.Filters;
+using ProductService.Application.Dto.Product;
 using ProductService.Application.Implementation;
 using ProductService.Application.Interface;
 using ProductService.Infrastructure.Configuration;
@@ -35,6 +37,9 @@ namespace ProductService.Api
             .AddFluentValidation();
 
             services.AddSwaggerDocument(options => Configuration.GetSection("SwaggerOptions").Bind(options));
+
+            services.AddTransient<IValidator<AddProductCommand>, AddProductValidator>();
+            services.AddTransient<IValidator<ChangeProductCommand>, ChangeProductValidator>();
 
             services.AddTransient<IProductApplication, ProductApplication>();
             services.AddInfrastructure(Configuration);
