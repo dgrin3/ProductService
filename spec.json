@@ -39,10 +39,13 @@
         ],
         "responses": {
           "200": {
-            "x-nullable": true,
+            "x-nullable": false,
             "description": "",
             "schema": {
-              "type": "file"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CategoryDto"
+              }
             }
           }
         }
@@ -74,10 +77,11 @@
         ],
         "responses": {
           "200": {
-            "x-nullable": true,
+            "x-nullable": false,
             "description": "",
             "schema": {
-              "type": "file"
+              "type": "integer",
+              "format": "int32"
             }
           }
         }
@@ -107,11 +111,7 @@
         ],
         "responses": {
           "200": {
-            "x-nullable": true,
-            "description": "",
-            "schema": {
-              "type": "file"
-            }
+            "description": ""
           }
         }
       }
@@ -136,11 +136,7 @@
         ],
         "responses": {
           "200": {
-            "x-nullable": true,
-            "description": "",
-            "schema": {
-              "type": "file"
-            }
+            "description": ""
           }
         }
       }
@@ -171,10 +167,11 @@
         ],
         "responses": {
           "200": {
-            "x-nullable": true,
+            "x-nullable": false,
             "description": "",
             "schema": {
-              "type": "file"
+              "type": "integer",
+              "format": "int32"
             }
           }
         }
@@ -204,11 +201,7 @@
         ],
         "responses": {
           "200": {
-            "x-nullable": true,
-            "description": "",
-            "schema": {
-              "type": "file"
-            }
+            "description": ""
           }
         }
       }
@@ -233,11 +226,7 @@
         ],
         "responses": {
           "200": {
-            "x-nullable": true,
-            "description": "",
-            "schema": {
-              "type": "file"
-            }
+            "description": ""
           }
         }
       }
@@ -270,10 +259,13 @@
         ],
         "responses": {
           "200": {
-            "x-nullable": true,
+            "x-nullable": false,
             "description": "",
             "schema": {
-              "type": "file"
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ProductDto"
+              }
             }
           }
         }
@@ -281,34 +273,6 @@
     }
   },
   "definitions": {
-    "AddCategoryCommand": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CategoryBaseDto"
-        },
-        {
-          "type": "object"
-        }
-      ]
-    },
-    "CategoryBaseDto": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        }
-      }
-    },
-    "ChangeCategoryCommand": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CategoryDto"
-        },
-        {
-          "type": "object"
-        }
-      ]
-    },
     "CategoryDto": {
       "allOf": [
         {
@@ -325,6 +289,34 @@
               "format": "int32"
             }
           }
+        }
+      ]
+    },
+    "CategoryBaseDto": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "AddCategoryCommand": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CategoryBaseDto"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "ChangeCategoryCommand": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CategoryDto"
+        },
+        {
+          "type": "object"
         }
       ]
     },

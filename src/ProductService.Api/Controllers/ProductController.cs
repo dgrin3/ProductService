@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using ProductService.Application.Dto;
 using ProductService.Application.Dto.Product;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace ProductService.Api.Controllers
 {
@@ -37,6 +38,7 @@ namespace ProductService.Api.Controllers
             operationId: nameof(AddAsync),
             summary: "Erstellen des Produkts",
             description: "Erstellen des Produkts")]
+        [ResponseType(typeof(int))]
         public async Task<IActionResult> AddAsync([FromBody] AddProductCommand product, CancellationToken cancellationToken)
             => Ok(await _productApplication.AddAsync(product, cancellationToken));
 
@@ -50,6 +52,7 @@ namespace ProductService.Api.Controllers
             operationId: nameof(ChangeAsync),
             summary: "Veränderung des Produkts",
             description: "Veränderung des Produkts")]
+        [ResponseType(typeof(void))]
         public async Task<IActionResult> ChangeAsync([FromBody] ChangeProductCommand product, CancellationToken cancellationToken)
         {
             await _productApplication.ChangeAsync(product, cancellationToken);
@@ -67,6 +70,7 @@ namespace ProductService.Api.Controllers
             operationId: nameof(DeleteAsync),
             summary: "Löschen des Produkts",
             description: "Löschen des Produkts")]
+        [ResponseType(typeof(void))]
         public async Task<IActionResult> DeleteAsync([FromRoute] DeleteProductCommand product, CancellationToken cancellationToken)
         {
             await _productApplication.DeleteAsync(product, cancellationToken);

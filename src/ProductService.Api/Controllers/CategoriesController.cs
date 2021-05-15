@@ -36,6 +36,7 @@ namespace ProductService.Api.Controllers
             operationId: nameof(ListByPageAsync),
             summary: "Kategorieliste nach Seite",
             description: "Kategorieliste nach Seite")]
+        [ResponseType(typeof(IEnumerable<CategoryDto>))]
         public async Task<IActionResult> ListByPageAsync([FromRoute] ListCategoriesByPageQuery query, CancellationToken cancellationToken)
             => Ok(await _categoryApplication.ListByPageAsync(query, cancellationToken));
 

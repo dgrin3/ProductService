@@ -36,6 +36,7 @@ namespace ProductService.Api.Controllers
             operationId: nameof(AddAsync),
             summary: "Erstellen der Kategorie",
             description: "Erstellen der Kategorie")]
+        [ResponseType(typeof(int))]
         public async Task<IActionResult> AddAsync([FromBody] AddCategoryCommand category, CancellationToken cancellationToken)
             => Ok(await _categoryApplication.AddAsync(category, cancellationToken));
 
@@ -49,6 +50,7 @@ namespace ProductService.Api.Controllers
             operationId: nameof(ChangeAsync),
             summary: "Veränderung der Kategorie",
             description: "Veränderung der Kategorie")]
+        [ResponseType(typeof(void))]
         public async Task<IActionResult> ChangeAsync([FromBody] ChangeCategoryCommand category, CancellationToken cancellationToken)
         {
             await _categoryApplication.ChangeAsync(category, cancellationToken);
@@ -66,6 +68,7 @@ namespace ProductService.Api.Controllers
             operationId: nameof(DeleteAsync),
             summary: "Löschen der Kategorie",
             description: "Löschen der Kategorie")]
+        [ResponseType(typeof(void))]
         public async Task<IActionResult> DeleteAsync([FromRoute] DeleteCategoryCommand category, CancellationToken cancellationToken)
         {
             await _categoryApplication.DeleteAsync(category, cancellationToken);
