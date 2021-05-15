@@ -21,15 +21,22 @@ namespace ProductService.Infrastructure.Repository
     public class ProductRepository : IProductRepository
     {
         private readonly ProductContext _context;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public ProductRepository(ProductContext context)
+        public ProductRepository(ProductContext context, ICategoryRepository categoryRepository)
         {
             _context = context;
+            _categoryRepository = categoryRepository;
         }
 
         ///<inheritdoc/>
         public async Task<int> AddAsync(ProductBaseDto product, CancellationToken cancellationToken)
         {
+            if (!await _categoryRepository.IsValidIdAsync(product.CategoryId, cancellationToken))
+            {
+                throw new NotFoundException("Category", $"id = {product.CategoryId}");
+            }
+            
             var productEntity = new ProductEntity
             {
                 Name = product.Name,
@@ -46,6 +53,11 @@ namespace ProductService.Infrastructure.Repository
         ///<inheritdoc/>
         public async Task ChangeAsync(ProductDto product, CancellationToken cancellationToken)
         {
+            if (!await _categoryRepository.IsValidIdAsync(product.CategoryId, cancellationToken))
+            {
+                throw new NotFoundException("Category", $"id = {product.CategoryId}");
+            }
+
             var productEntity = await GetByIdAsync(product.Id, cancellationToken);
 
             productEntity.Name = product.Name;
@@ -65,13 +77,14 @@ namespace ProductService.Infrastructure.Repository
         }
 
         ///<inheritdoc/>
-        public async Task<IEnumerable<ProductDto>> ListByPageAsync(int pageNumber, int pageSize, CancellationToken cancellationToken)
+        public async Task<IEnumerable<ProductQueryDto>> ListByPageAsync(int pageNumber, int pageSize, CancellationToken cancellationToken)
         {
             return await _context.Products.AsNoTracking()
+                .Include(p => p.Category)
                 .OrderBy(p => p.Id)
                 .Skip(pageNumber * pageSize)
                 .Take(pageSize)
-                .Select(p => p.MapToProductDto())
+                .Select(p => p.MapToProductQueryDto())
                 .ToListAsync(cancellationToken);
         }
 

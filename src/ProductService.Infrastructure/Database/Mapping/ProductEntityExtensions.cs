@@ -14,18 +14,19 @@ namespace ProductService.Infrastructure.Database.Mapping
     public static class ProductMappingExtensions
     {
         /// <summary>
-        /// Mapping auf ProductDto
+        /// Mapping auf ProductQueryDto
         /// </summary>
         /// <param name="p"></param>
-        /// <returns>ProductDto</returns>
-        public static ProductDto MapToProductDto(this ProductEntity p)
+        /// <returns>ProductQueryDto</returns>
+        public static ProductQueryDto MapToProductQueryDto(this ProductEntity p)
             => new()
             {
                 Id = p.Id,
                 Name = p.Name,
                 Price = p.Price,
                 Description = p.Description,
-                CategoryId = p.CategoryId
+                CategoryId = p.CategoryId,
+                CategoryName = p.Category?.Name
             };
     }
 }

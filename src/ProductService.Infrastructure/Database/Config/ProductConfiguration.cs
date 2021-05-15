@@ -22,6 +22,9 @@ namespace ProductService.Infrastructure.Database.Config
             builder.Property(e => e.Description).HasColumnName("Description").HasColumnType("text").IsRequired(true).IsUnicode();
             builder.Property(e => e.Price).HasColumnName("Price").HasColumnType("decimal(18,2)").IsRequired(true);
             builder.Property(e => e.CategoryId).HasColumnName("CategoryId").HasColumnType("int").IsRequired(true);
+            builder.HasOne(e => e.Category)
+                .WithMany()
+                .HasForeignKey(f => f.CategoryId);
             builder.ToTable("Products");
         }
     }

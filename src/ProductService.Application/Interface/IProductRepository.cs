@@ -18,7 +18,7 @@ namespace ProductService.Application.Interface
         /// Auflisten der Produkte nach Seite
         /// </summary>
         /// <returns>Liste der Produkte</returns>
-        Task<IEnumerable<ProductDto>> ListByPageAsync(int pageNumber, int pageSize, CancellationToken cancellationToken);
+        Task<IEnumerable<ProductQueryDto>> ListByPageAsync(int pageNumber, int pageSize, CancellationToken cancellationToken);
 
         /// <summary>
         /// Erstellen des Produkts

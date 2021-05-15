@@ -15,6 +15,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1D4A4A06-B13C-45D3-9B9F-E3A234D93881}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		spec.json = spec.json
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductService.Application", "Src\ProductService.Application\ProductService.Application.csproj", "{76E0512D-C28D-4206-996E-5A8150F0773C}"

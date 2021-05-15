@@ -14,25 +14,25 @@ namespace ProductService.Application.Interface
     public interface ICategoryApplication
     {
         /// <summary>
-        /// Auflisten der Produkte nach Seite
+        /// Auflisten der Kategorien nach Seite
         /// </summary>
         /// <returns>Liste der Produkte</returns>
         Task<IEnumerable<CategoryDto>> ListByPageAsync(ListCategoriesByPageQuery query, CancellationToken cancellationToken);
 
         /// <summary>
-        /// Erstellen des Produkts
+        /// Erstellen der Kategorie
         /// </summary>
         /// <returns>Liste der Produkte.</returns>
         Task<int> AddAsync(AddCategoryCommand category, CancellationToken cancellationToken);
 
         /// <summary>
-        /// Änderung des Produkts
+        /// Änderung der Kategorie
         /// </summary>
         /// <returns>.</returns>
         Task ChangeAsync(ChangeCategoryCommand category, CancellationToken cancellationToken);
 
         /// <summary>
-        /// Löschen des Produkts
+        /// Löschen der Kategorie
         /// </summary>
         /// <returns>.</returns>
         Task DeleteAsync(DeleteCategoryCommand categoryId, CancellationToken cancellationToken);

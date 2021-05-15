@@ -35,5 +35,10 @@ namespace ProductService.Infrastructure.Database.Entity
         /// Kategorie Id
         /// </summary>
         public int CategoryId { get; set; }
+
+        /// <summary>
+        /// Kategorie als verbundene Entität
+        /// </summary>
+        public CategoryEntity Category { get; set; }
     }
 }

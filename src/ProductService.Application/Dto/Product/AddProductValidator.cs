@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using ProductService.Application.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ProductService.Application.Dto.Product
 {
     public class AddProductValidator : AbstractValidator<AddProductCommand>
     {
-        public AddProductValidator()
+        public AddProductValidator(ICategoryApplication categoryApplication)
         {
             RuleFor(p => p.Name.Length)
                 .GreaterThan(5)

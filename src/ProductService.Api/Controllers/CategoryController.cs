@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
 using ProductService.Application.Dto.Category;
 using ProductService.Application.Interface;
@@ -26,7 +27,7 @@ namespace ProductService.Api.Controllers
         }
 
         /// <summary>
-        /// Erstellen der Kategorie
+        /// Erstellen neuer Kategorie
         /// </summary>
         /// <param name="cancellationToken"></param>
         /// <returns>Id der neuen Kategorie</returns>
@@ -35,7 +36,7 @@ namespace ProductService.Api.Controllers
             operationId: nameof(AddAsync),
             summary: "Erstellen der Kategorie",
             description: "Erstellen der Kategorie")]
-        public async Task<IActionResult> AddAsync(AddCategoryCommand category, CancellationToken cancellationToken)
+        public async Task<IActionResult> AddAsync([FromBody] AddCategoryCommand category, CancellationToken cancellationToken)
             => Ok(await _categoryApplication.AddAsync(category, cancellationToken));
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace ProductService.Api.Controllers
             operationId: nameof(ChangeAsync),
             summary: "Veränderung der Kategorie",
             description: "Veränderung der Kategorie")]
-        public async Task<IActionResult> ChangeAsync(ChangeCategoryCommand category, CancellationToken cancellationToken)
+        public async Task<IActionResult> ChangeAsync([FromBody] ChangeCategoryCommand category, CancellationToken cancellationToken)
         {
             await _categoryApplication.ChangeAsync(category, cancellationToken);
 

@@ -17,7 +17,7 @@ namespace ProductService.Infrastructure.Database.Mapping
         /// Mapping auf CategoryDto
         /// </summary>
         /// <param name="p"></param>
-        /// <returns>ProductDto</returns>
+        /// <returns>CategoryDto</returns>
         public static CategoryDto MapToCategoryDto(this CategoryEntity p)
             => new()
             {

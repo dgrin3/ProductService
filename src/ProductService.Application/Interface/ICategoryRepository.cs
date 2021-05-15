@@ -36,5 +36,11 @@ namespace ProductService.Application.Interface
         /// </summary>
         /// <returns>.</returns>
         Task DeleteAsync(int categoryId, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Überprüfen, ob Id gültig ist 
+        /// </summary>
+        /// <returns>.</returns>
+        Task<bool> IsValidIdAsync(int categoryId, CancellationToken cancellationToken);
     }
 }

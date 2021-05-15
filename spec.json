@@ -1,0 +1,408 @@
+﻿{
+  "x-generator": "NSwag v13.11.1.0 (NJsonSchema v10.4.3.0 (Newtonsoft.Json v12.0.0.0))",
+  "swagger": "2.0",
+  "info": {
+    "title": "ProductService",
+    "description": "Ein Service für Produktverwaltung.",
+    "version": "1.0.0"
+  },
+  "host": "localhost:5000",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/Categories/{PageNumber}/{PageSize}": {
+      "get": {
+        "tags": [
+          "`Kategorien`"
+        ],
+        "summary": "Kategorieliste nach Seite",
+        "description": "Kategorieliste nach Seite",
+        "operationId": "ListByPageAsync",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "PageNumber",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "type": "integer",
+            "name": "PageSize",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/Category": {
+      "post": {
+        "tags": [
+          "`Kategorie`"
+        ],
+        "summary": "Erstellen der Kategorie",
+        "description": "Erstellen der Kategorie",
+        "operationId": "AddAsync",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddCategoryCommand"
+            },
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "`Kategorie`"
+        ],
+        "summary": "Veränderung der Kategorie",
+        "description": "Veränderung der Kategorie",
+        "operationId": "ChangeAsync",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "category",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChangeCategoryCommand"
+            },
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/Category/{CategoryId}": {
+      "delete": {
+        "tags": [
+          "`Kategorie`"
+        ],
+        "summary": "Löschen der Kategorie",
+        "description": "Löschen der Kategorie",
+        "operationId": "DeleteAsync",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "CategoryId",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/Product": {
+      "post": {
+        "tags": [
+          "`Produkt`"
+        ],
+        "summary": "Erstellen des Produkts",
+        "description": "Erstellen des Produkts",
+        "operationId": "AddAsync2",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "product",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AddProductCommand"
+            },
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "`Produkt`"
+        ],
+        "summary": "Veränderung des Produkts",
+        "description": "Veränderung des Produkts",
+        "operationId": "ChangeAsync2",
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "product",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ChangeProductCommand"
+            },
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/Product/{ProductId}": {
+      "delete": {
+        "tags": [
+          "`Produkt`"
+        ],
+        "summary": "Löschen des Produkts",
+        "description": "Löschen des Produkts",
+        "operationId": "DeleteAsync2",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "ProductId",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/Products/{PageNumber}/{PageSize}": {
+      "get": {
+        "tags": [
+          "`Produkte`"
+        ],
+        "summary": "Produktliste nach Seite",
+        "description": "Produktliste nach Seite",
+        "operationId": "ListByPageAsync2",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "PageNumber",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "type": "integer",
+            "name": "PageSize",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "AddCategoryCommand": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CategoryBaseDto"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "CategoryBaseDto": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "ChangeCategoryCommand": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CategoryDto"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "CategoryDto": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CategoryBaseDto"
+        },
+        {
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      ]
+    },
+    "AddProductCommand": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProductBaseDto"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "ProductBaseDto": {
+      "type": "object",
+      "required": [
+        "price",
+        "categoryId"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "number",
+          "format": "decimal"
+        },
+        "description": {
+          "type": "string"
+        },
+        "categoryId": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "ChangeProductCommand": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProductDto"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "ProductDto": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ProductBaseDto"
+        },
+        {
+          "type": "object",
+          "required": [
+            "id"
+          ],
+          "properties": {
+            "id": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "`Kategorien`"
+    },
+    {
+      "name": "`Kategorie`"
+    },
+    {
+      "name": "`Produkt`"
+    },
+    {
+      "name": "`Produkte`"
+    }
+  ]
+}

@@ -57,6 +57,13 @@ namespace ProductService.Infrastructure.Repository
             await _context.SaveChangesAsync(cancellationToken);
         }
 
+        public async Task<bool> IsValidIdAsync(int categoryId, CancellationToken cancellationToken)
+        {
+            var category = await GetByIdAsync(categoryId, cancellationToken);
+
+            return category != null;
+        }
+
         ///<inheritdoc/>
         public async Task<IEnumerable<CategoryDto>> ListByPageAsync(int pageNumber, int pageSize, CancellationToken cancellationToken)
         {
